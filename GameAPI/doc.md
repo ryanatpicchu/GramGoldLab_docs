@@ -1,7 +1,6 @@
 # Giggle API Documentation
 
-## Table of Contents
-* **URL**
+## URL
 
   * http://game.gramgoldlab.com/api/v1/
 
@@ -19,7 +18,7 @@ SSL will be accomplished soon.
 
 ### Start
 
-相關資訊說明頁面
+開始新遊戲會話
 
 * **URL**
 
@@ -32,29 +31,29 @@ SSL will be accomplished soon.
 * **Request:**
 
   * **Json Body:** 
-    ```
+ 
     [{ 
-"timestamp":1503383341514,
-"sessionId":"375e3e418a45494c92bf1e6ec2f7460e", 
-"partnerPlayerId":"demouserf",
-"currency":"ISO 4217",
-"gameId":"Vampire",
-"action":"play",
-"playerIp":"223.27.48.212",
-"transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8",
-"type":"BonusPick",
-"amount":200,
-"betAmount":200,
-"winAmount": 15,
-"jpc":0,
-"selections":5,
-"betPerSelection":2,
-"freeGames":false, 
-"round":0,
-"roundsRemaining":0
-}]
+    "timestamp":1503383341514,
+    "sessionId":"375e3e418a45494c92bf1e6ec2f7460e", 
+    "partnerPlayerId":"demouserf",
+    "currency":"ISO 4217",
+    "gameId":"Vampire",
+    "action":"play",
+    "playerIp":"223.27.48.212",
+    "transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8",
+    "type":"BonusPick",
+    "amount":200,
+    "betAmount":200,
+    "winAmount": 15,
+    "jpc":0,
+    "selections":5,
+    "betPerSelection":2,
+    "freeGames":false, 
+    "round":0,
+    "roundsRemaining":0
+    }]
 
-    ```
+ 
   * **Content:**
 
     | Field                 | Type     | Description                                                                 |
@@ -72,7 +71,6 @@ SSL will be accomplished soon.
 
 * **Success Response:**
 
-  * **Code:** 
   * **Content:**
 
     | Field                 | Type     | Description                                                                 |
@@ -91,7 +89,7 @@ SSL will be accomplished soon.
 * **Sample Call:**
 
   ```
-  /general_info?sn=6503f61751a35f2d54d2122d590a23e6
+  /start?hash=663187fac4edbcdff62ea239deacc34719305749201267929e
   
   ```
  
