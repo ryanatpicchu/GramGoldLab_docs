@@ -30,7 +30,7 @@ SSL will be accomplished soon.
   
 * **Request:**
 
-  * **Json Body:** 
+  * **JSON Body:** 
  
     [{ 
     "timestamp":1503383341514,
@@ -43,7 +43,7 @@ SSL will be accomplished soon.
     }]
 
  
-  * **Content:**
+  * **JSON Content:**
 
     | Field           | Required | Type     | Description                                                      |
     |:----------------|:---------|:---------|:-----------------------------------------------------------------|
@@ -56,8 +56,14 @@ SSL will be accomplished soon.
     | operatorName    | No       | String   | 遊戲啟動鏈結中指定的合作夥伴子品牌或代理商 |
     | action          | Yes      | String   | 信息類型，包含:start, balance, play, credit, end, revoke |
     | playerIp        | Yes      | String   | 玩家 IP 位址 (IPv4 或 IPv6) |
-   
-   
+  
+  * **HASH encryption rule:**
+     ```
+     PHP example:
+     $test_secret_key = 'gramgoldlab';
+     $url_hash_param = hash_hmac('SHA256', $json_body, $test_secret_key);
+     
+     ```
 
 * **Success Response:**
 
