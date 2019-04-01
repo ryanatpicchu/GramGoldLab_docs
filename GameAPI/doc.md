@@ -1,4 +1,4 @@
-# Giggle API Documentation
+# Game Restful API Documentation
 
 ## URL
 
@@ -56,17 +56,11 @@ SSL will be accomplished soon.
  
   * **Content:**
 
-    | Field                 | Type     | Description                                                                 |
+    | Field                 | Required | Type     | Description                                                      |
     |:----------------------|:---------|:----------------------------------------------------------------------------|
-    | status                | boolean  | TRUE/FALSE                                                                  |
-    | msg                   | string   | error message                                                               |
-    | info                  | JSON     | JSON Encoded                                                                |
-    | - app_name                | string  | TRUE/FALSE                                                               |
-    | - designer                | string   |                                                                         |
-    | - app_icon                | string   | url                                                                     |
-    | - purpose_of_design       | string   |                                                                         |
-    | - still_missing           | string   |                                                                         |
-    | - for_what_is_not_missing | string   |                                                                         |
+    | timestamp             | Yes      | Long     |                                                                  |
+    | sessionId             | Yes      | String (32 chars)     |                                                     |
+   
    
 
 * **Success Response:**
