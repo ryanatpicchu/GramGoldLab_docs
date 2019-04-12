@@ -26,7 +26,7 @@ SSL will be accomplished soon.
 
 * **Method:**
 
-  `POST`
+  `GET`
   
 * **Request:**
 
@@ -127,7 +127,7 @@ SSL will be accomplished soon.
 
 * **Method:**
 
-  `POST`
+  `GET`
   
 * **Request:**
 
