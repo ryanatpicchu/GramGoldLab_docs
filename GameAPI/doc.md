@@ -2,7 +2,7 @@
 ## NOTICES
 
   * besides betAmount/winAmount, you don't need to concern about any parameters at this version
-  * there is no much balance in this game pool, please make a wager amount between 1~10 GGC prevent betting
+  * there is no much balance in this game pool, please make a wager amount between 1~10 GGC prevent betting failure
 
 ## URL
 
