@@ -44,6 +44,7 @@ SSL will be accomplished soon.
 $message = '[{ "timestamp":1503383341514, "sessionId":"375e3e418a45494c92bf1e6ec2f7460e", "partnerPlayerId":"wx12345678", "currency":"GGC", "gameId":"Vampire", "token":"TF3xFEjH5xR9LhYz9WTa4GjRnPwHoJFLef", "operatorName":"", "action":"play", "playerIp":"223.27.48.212", "transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8", "betAmount":1000, "winAmount":1100, "round":1}]';
 
 $secret_key = '<AS MENTIONED BEFORE>';
+
 hash_hmac('SHA256',  $message, $secret_key)
   
   ```
