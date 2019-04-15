@@ -32,48 +32,22 @@ SSL will be accomplished soon.
 
   * **JSON Body (Player wins: winAmount > 0):** 
  
-    [{ 
-    "timestamp":1503383341514, 
-    "sessionId":"375e3e418a45494c92bf1e6ec2f7460e", 
-    "partnerPlayerId":"demouser", 
-    "currency":"GGC", 
-    "gameId":"Vampire", 
-    "token":"",
-    "operatorName":"",
-    "action":"play", 
-    "playerIp":"223.27.48.212",
-    "transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8",
-    "betAmount":5,
-    "winAmount":10,
-    "selections":1,
-    "betPerSelection":2,
-    "freeGames":1,
-    "round":1,
-    "roundsRemaining":2
-    }]
+   [{ "timestamp":1503383341514, "sessionId":"375e3e418a45494c92bf1e6ec2f7460e", "partnerPlayerId":"wx12345678", "currency":"GGC", "gameId":"Vampire", "token":"TF3xFEjH5xR9LhYz9WTa4GjRnPwHoJFLef", "operatorName":"", "action":"play", "playerIp":"223.27.48.212", "transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8", "betAmount":1000, "winAmount":1100, "round":1}]
     
   * **JSON Body (Player lost: winAmount = 0):** 
  
-    [{ 
-    "timestamp":1503383341514, 
-    "sessionId":"375e3e418a45494c92bf1e6ec2f7460e", 
-    "partnerPlayerId":"demouser", 
-    "currency":"GGC", 
-    "gameId":"Vampire", 
-    "token":"",
-    "operatorName":"",
-    "action":"play", 
-    "playerIp":"223.27.48.212",
-    "transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8",
-    "betAmount":5,
-    "winAmount":0,
-    "selections":1,
-    "betPerSelection":2,
-    "freeGames":1,
-    "round":1,
-    "roundsRemaining":2
-    }]
+    [{ "timestamp":1503383341514, "sessionId":"375e3e418a45494c92bf1e6ec2f7460e", "partnerPlayerId":"wx12345678", "currency":"GGC", "gameId":"Vampire", "token":"TF3xFEjH5xR9LhYz9WTa4GjRnPwHoJFLef", "operatorName":"", "action":"play", "playerIp":"223.27.48.212", "transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8", "betAmount":1000, "winAmount":0, "round":1}]
+ 
+  * **HASH:** 
+ 
+ ```
+$message = '[{ "timestamp":1503383341514, "sessionId":"375e3e418a45494c92bf1e6ec2f7460e", "partnerPlayerId":"wx12345678", "currency":"GGC", "gameId":"Vampire", "token":"TF3xFEjH5xR9LhYz9WTa4GjRnPwHoJFLef", "operatorName":"", "action":"play", "playerIp":"223.27.48.212", "transactionId":"672f27df1dcc401fa4ed6cdc14fb78f8", "betAmount":1000, "winAmount":1100, "round":1}]';
 
+$secret_key = '<AS MENTIONED BEFORE>';
+hash_hmac('SHA256',  $message, $secret_key)
+  
+  ```
+ 
  
   * **JSON Content:**
 
@@ -91,12 +65,7 @@ SSL will be accomplished soon.
     | transactioinId  | Yes      | String   | 遊戲交易識別碼 |
     | betAmount  | Yes      | Long   | 玩家下注金額 |
     | winAmount  | Yes      | Long   | 玩家贏得派彩 |
-    | selections | Yes      | Int   |  |
-    | betPerSelection  | Yes      | Long   |  |
-    | freeGames  | Yes      | Bool   | 是否為免費遊戲 |
     | round      | Yes      | Int   |  |
-    | roundsRemaining  | Yes      | Int   |  |
-  
 
 * **Success Response:**
 
@@ -109,6 +78,7 @@ SSL will be accomplished soon.
     | userMessage     | No       | String   | 如果有指定該欄位，則在遊戲中以對話框方式向玩家顯示該信息。這可以用來即時通知玩家各種信息，例如:帳戶狀態、錯誤發生或是獲得的獎勵活動獎金 |
     | balance         | Yes      | Long     | 玩家最新的餘額 |     
     | balanceSequence | No       | Long     |              |
+
 
 * **Sample Call:**
 
