@@ -3,7 +3,7 @@
 
 ## URL
 
-  * API : http://game.gramgoldlab.com/api/v1/
+  * API : http://wallet.gramgoldlab.com/api/v1/
   * All records of transaction on TRON blockchain : https://shasta.tronscan.org/#/contract/TLciAxFyz54pt7haMDpnDSD8vFjk5hzePR
 
 SSL will be accomplished soon.
