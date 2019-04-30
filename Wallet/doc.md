@@ -12,6 +12,7 @@ SSL will be accomplished soon.
 
 1. [Play](#play)
 1. [Balance](#balance)
+1. [Start](#start)
 
 ### Play
 
@@ -117,5 +118,52 @@ hash_hmac('SHA256',  $message, $secret_key)
 
   ```
   /balance?hash=663187fac4edbcdff62ea239deacc34719305749201267929e
+  
+  ```
+
+### Start
+
+開始遊戲。用於取得錢包餘額及設定可動用之上限
+
+* **URL**
+
+  * /start
+
+* **Method:**
+
+  `POST`
+  
+* **Request:**
+
+  * **JSON Body** 
+ 
+    {"timestamp":1556270669,"walletAddress":"TAVQVeCSVX43pzu2BTHrgsLLTaLkvQxxcD","unlockToken":"DNcr8vVFr4HLoZfVekW5FMtobNXpYooqD8gTmU1yjYAC" }
+ 
+  * **JSON Content:**
+
+   | Field           | Required | Type     | Description                                                      |
+    |:----------------|:---------|:---------|:-----------------------------------------------------------------|
+    | timestamp       | Yes      | Long     | 發出請求的時間戳，以毫秒為單位的 Epoch time(UTC milliseconds since 1/1/1970) |
+    | unlockToken     | Yes      | String   |                                                                  |
+    | walletAddress   | Yes      | String   |                                                                  |
+
+* **Success Response:**
+
+  * **Content:**
+
+    | Field           | Required | Type     | Description                                                      |
+    |:----------------|:---------|:---------|:-----------------------------------------------------------------|
+    | status          | Yes      | String   | 信息回應狀態說明，如果成功請回傳 "success";如果有其他錯誤，請回傳特定的錯誤信息。該錯誤信息不會顯示在玩家的遊戲畫面，而是用以協助遊戲平台追蹤或 解決相關問題 |
+    | statusCode      | Int      |                                                                  |
+    | userMessage     | String   |              |
+    | balance         | Long     | 玩家錢包最新的餘額 | 
+    | startTX         | String   | transaction hash 用於查詢區塊鏈的執行結果             |
+    | nextUnlockToken | String   |              |
+    | approveAmount   | Long     | 可動用餘額之上限      |
+    
+* **Sample Call:**
+
+  ```
+  /start?hash=dfd3e25938adca8e96ef3e64f7f0e97b1d51386825858d5191536323c973b361
   
   ```
