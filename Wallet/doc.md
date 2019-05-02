@@ -13,6 +13,7 @@ SSL will be accomplished soon.
 1. [Play](#play)
 1. [Balance](#balance)
 1. [Start](#start)
+1. [How to authorize game app to access money](#how_to_authorize_game_app_to_access_money)
 
 ### Play
 
@@ -167,3 +168,57 @@ hash_hmac('SHA256',  $message, $secret_key)
   /start?hash=dfd3e25938adca8e96ef3e64f7f0e97b1d51386825858d5191536323c973b361
   
   ```
+
+### How to authorize game app to access money
+
+* **URL**
+
+  * ggcwallet://auth/
+
+* **Method:**
+
+  `GET`
+  
+* **Request:**
+
+  * **HASH:** 
+ ```
+        $ggc_key = 'gramgoldlab888_test_key';
+        $ggc_secret = 'gramgoldlab888_test_secret';
+        $t = time();
+
+        $required_key = array('key'=>$ggc_key, 'secret'=>$ggc_secret, 't'=>(String)$t);
+        
+        $hash = hash_hmac('SHA256',json_encode($required_key),"ggc_test_operator");
+ ```
+ 
+  * **URL Parameters:**
+
+    | Field           | Required | Type     | Description                                                      |
+    |:----------------|:---------|:---------|:-----------------------------------------------------------------|
+    | hash        | Yes      | String   |          |
+    | partner     | Yes      | String   |  "ggc_test_operator"  for testing                             |
+    | t           | Yes      | Long     |          |
+    | returnUrl   | Yes      | String   |          |
+    
+* **Success Response:**
+
+  * **Content:**
+
+    | Field           | Type     | Description  |
+    |:----------------|:---------|:---------|
+    | errorMsg        | String   |          |
+    | unlockToken     | String   | pass to "t" parameter of game url   |                
+    | walletAddress   | String   | pass to "u" parameter of game url   |                
+   
+  * **URL Sample:**
+ https://gamesstage.kaga88.com/?g=SuperShot&p=GGC&u={walletAddress}&t={unlockToken}&ak=14335AE38A584FB19745DB99577890BA&cr=USD&loc=en
+
+* **Sample Call:**
+  遊戲app呼叫 wallet app 進行錢包授權 => 要打開以下url scheme
+  
+  ```
+ggcwallet://auth/returnUrl=${returnURLPrefix}&hash=${hash}&t=${t}&partner=${partner}
+  
+  ```
+ 
