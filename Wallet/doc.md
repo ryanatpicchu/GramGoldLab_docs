@@ -13,7 +13,7 @@ SSL will be accomplished soon.
 1. [Play](#play)
 1. [Balance](#balance)
 1. [Start](#start)
-1. [How to authorize game app to access money](#how_to_authorize_game_app_to_access_money)
+1. [How to authorize game app to access money](#how-to-authorize-game-app-to-access-money)
 
 ### Play
 
