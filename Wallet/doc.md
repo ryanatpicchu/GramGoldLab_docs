@@ -211,14 +211,14 @@ hash_hmac('SHA256',  $message, $secret_key)
     | unlockToken     | String   | pass to "t" parameter of game url   |                
     | walletAddress   | String   | pass to "u" parameter of game url   |                
    
-  * **URL Sample:**
+  * **Game URL Sample:**
  https://gamesstage.kaga88.com/?g=SuperShot&p=GGC&u={walletAddress}&t={unlockToken}&ak=14335AE38A584FB19745DB99577890BA&cr=USD&loc=en
 
 * **Sample Call:**
   遊戲app呼叫 wallet app 進行錢包授權 => 要打開以下url scheme
   
-  ```
+```
 ggcwallet://auth/returnUrl=${returnURLPrefix}&hash=${hash}&t=${t}&partner=${partner}
   
-  ```
+```
  
