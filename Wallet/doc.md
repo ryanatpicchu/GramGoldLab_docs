@@ -13,6 +13,7 @@ SSL will be accomplished soon.
 1. [Play](#play)
 1. [Balance](#balance)
 1. [Start](#start)
+1. [Credit](#credit)
 1. [How to authorize game app to access money](#how-to-authorize-game-app-to-access-money)
 
 ### Play
@@ -166,6 +167,52 @@ hash_hmac('SHA256',  $message, $secret_key)
 
   ```
   /start?hash=dfd3e25938adca8e96ef3e64f7f0e97b1d51386825858d5191536323c973b361
+  
+  ```
+  
+### Credit
+
+直接派彩給玩家
+
+* **URL**
+
+  * /credit
+
+* **Method:**
+
+  `POST`
+  
+* **Request:**
+
+  * **JSON Body** 
+ 
+   {"timestamp":1556270669,"creditAmount":200,"walletAddress":"TAVQVeCSVX43pzu2BTHrgsLLTaLkvQxxcD" }
+ 
+  * **JSON Content:**
+
+   | Field           | Required | Type     | Description                                                      |
+    |:----------------|:---------|:---------|:-----------------------------------------------------------------|
+    | timestamp       | Yes      | Long     | 發出請求的時間戳，以毫秒為單位的 Epoch time(UTC milliseconds since 1/1/1970) |
+    | creditAmount    | Yes      | Long     |                                                                  |
+    | walletAddress   | Yes      | String   |                                                                  |
+
+* **Success Response:**
+
+  * **Content:**
+
+    | Field           | Required | Type     | Description                                                      |
+    |:----------------|:---------|:---------|:-----------------------------------------------------------------|
+    | status          | Yes      | String   | 信息回應狀態說明，如果成功請回傳 "success";如果有其他錯誤，請回傳特定的錯誤信息。該錯誤信息不會顯示在玩家的遊戲畫面，而是用以協助遊戲平台追蹤或 解決相關問題 |
+    | statusCode      | Int      |                                                                  |
+    | userMessage     | String   |              |
+    | balance         | Long     | 玩家錢包最新的餘額 | 
+    | creditTX        | String   |  transaction hash 用於查詢區塊鏈的執行結果             |            |
+    | creditAmount    | Long     | 派彩金額      |
+    
+* **Sample Call:**
+
+  ```
+  /credit?hash=3299ade0abbf54e56f67ce8a77747eb4760e10244860d3db3e51e7d130cd18f3
   
   ```
 
